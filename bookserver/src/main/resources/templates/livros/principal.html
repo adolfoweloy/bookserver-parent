@@ -22,6 +22,29 @@
         Controle de livros
     </h4>
 
+    <form action="#" th:action="@{/livros/principal}" th:object="${dadosDoLivro}" method="post">
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="titulo">Título:</label>
+                <input class="form-control" id="titulo" type="text" th:field="*{titulo}"/>
+                <div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">preencher o titulo</div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="nota">Nota:</label>
+                <input class="form-control" id="nota" type="text" th:field="*{nota}"/>
+                <div th:if="${#fields.hasErrors('nota')}" th:errors="*{nota}">preencher a nota</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Adicionar livro</button>
+        </div>
+
+    </form>
+
+    <hr/>
+
     <div th:if="${livros != null}">
         <h4>
             Esses são seus livros cadastrados na aplicação bookserver
@@ -39,12 +62,11 @@
         </table>
     </div>
 
-    <div th:if="${livros == null}">
+    <div th:if="${#lists.isEmpty(livros)}">
         <div class="alert alert-info" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
-            Opla! Você não tem conta no sistema bookserver
-            Use sua conta do bookserver aqui para mostrar os livros que você já leu!
+            Você ainda não tem livros cadastrados!
         </div>
     </div>
 

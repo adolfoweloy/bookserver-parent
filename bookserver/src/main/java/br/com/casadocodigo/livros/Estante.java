@@ -1,8 +1,10 @@
 package br.com.casadocodigo.livros;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -30,7 +32,7 @@ public class Estante {
 
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "estante_id")
-	private Set<Livro> livros = new HashSet<>();
+	private List<Livro> livros = new ArrayList<>();
 
 	public boolean temLivros() {
 		return livros.size() > 0;

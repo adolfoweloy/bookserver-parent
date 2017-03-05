@@ -38,9 +38,9 @@ public class ConfiguracaoOAuth {
             // @formatter:off
             http
                 .requestMatchers()
-                    .antMatchers("/api/livros/**").and()
+                    .antMatchers("/api/v2/livros/**").and()
                 .authorizeRequests()
-                    .antMatchers("/api/livros/**").authenticated();
+                    .antMatchers("/api/v2/livros/**").authenticated();
             // @formatter:on
         }
 
@@ -65,13 +65,15 @@ public class ConfiguracaoOAuth {
         public void configure(ClientDetailsServiceConfigurer clients)
                 throws Exception {
 
+            // @formatter:off
             clients
-                    .inMemory()
-                    .withClient("bookserver-client")
-                    .secret("123456")
-                    .authorizedGrantTypes("password")
-                    .scopes("read", "write")
-                    .resourceIds(RESOURCE_ID);
+                .inMemory()
+                .withClient("bookserver-client")
+                .secret("123456")
+                .authorizedGrantTypes("password")
+                .scopes("read", "write")
+                .resourceIds(RESOURCE_ID);
+            // @formatter:on
         }
 
     }

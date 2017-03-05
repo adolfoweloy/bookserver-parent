@@ -28,8 +28,10 @@ public class Usuarios {
 	}
 
 	public Optional<Usuario> buscarPorEmail(String email) {
-		TypedQuery<Usuario> query = em.createQuery("select u from Usuario u where u.credenciais.email = :email",
-				Usuario.class);
+		TypedQuery<Usuario> query = em.createQuery(
+			"select u from Usuario u where u.credenciais.email = :email",
+			Usuario.class);
+
 		query.setParameter("email", email);
 
 		try {

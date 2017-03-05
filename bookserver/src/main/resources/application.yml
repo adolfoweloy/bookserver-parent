@@ -7,7 +7,7 @@ server.port: 8080
 ## -> client details em um banco de dados (ao invés de em memória).
 oauth:
   enabled: true
-  all-in-one: false
+  all-in-one: true
 
 ## configurações do datasource do spring
 spring:
