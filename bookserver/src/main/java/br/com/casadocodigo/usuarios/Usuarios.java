@@ -1,4 +1,4 @@
-package br.com.casadocodigo.registro;
+package br.com.casadocodigo.usuarios;
 
 import java.util.Optional;
 
@@ -17,12 +17,7 @@ public class Usuarios {
 	@PersistenceContext
 	private EntityManager em;
 
-	public Usuario registrar(DadosDeRegistro dadosDeRegistro) {
-
-		Credenciais credenciais = new Credenciais(dadosDeRegistro.getEmail(), dadosDeRegistro.getSenha());
-
-		Usuario novoUsuario = new Usuario(dadosDeRegistro.getNome(), credenciais);
-
+	public Usuario registrar(Usuario novoUsuario) {
 		em.persist(novoUsuario);
 
 		return novoUsuario;

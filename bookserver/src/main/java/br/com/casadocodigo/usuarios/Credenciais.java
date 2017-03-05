@@ -1,4 +1,4 @@
-package br.com.casadocodigo.registro;
+package br.com.casadocodigo.usuarios;
 
 import javax.persistence.Embeddable;
 

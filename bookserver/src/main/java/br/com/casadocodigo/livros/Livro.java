@@ -1,4 +1,4 @@
-package br.com.casadocodigo.estante;
+package br.com.casadocodigo.livros;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

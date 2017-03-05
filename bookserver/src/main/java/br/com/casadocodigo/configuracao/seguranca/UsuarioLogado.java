@@ -1,11 +1,11 @@
-package br.com.casadocodigo.seguranca;
+package br.com.casadocodigo.configuracao.seguranca;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.casadocodigo.registro.Usuario;
+import br.com.casadocodigo.usuarios.Usuario;
 
 public class UsuarioLogado implements UserDetails {
 

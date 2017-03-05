@@ -1,7 +1,7 @@
-package br.com.casadocodigo.seguranca.oauth;
+package br.com.casadocodigo.configuracao.seguranca.oauth;
 
-import br.com.casadocodigo.seguranca.conditions.OAuthHabilitado;
-import br.com.casadocodigo.seguranca.conditions.OAuthProviderSeparado;
+import br.com.casadocodigo.configuracao.seguranca.conditions.OAuthHabilitado;
+import br.com.casadocodigo.configuracao.seguranca.conditions.OAuthProviderSeparado;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

@@ -1,4 +1,4 @@
-package br.com.casadocodigo.estante;
+package br.com.casadocodigo.livros;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -14,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import br.com.casadocodigo.registro.Usuario;
+import br.com.casadocodigo.usuarios.Usuario;
 import lombok.Getter;
 
 @Entity

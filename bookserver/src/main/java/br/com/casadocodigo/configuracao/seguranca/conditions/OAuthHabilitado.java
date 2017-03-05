@@ -1,4 +1,4 @@
-package br.com.casadocodigo.seguranca.conditions;
+package br.com.casadocodigo.configuracao.seguranca.conditions;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;

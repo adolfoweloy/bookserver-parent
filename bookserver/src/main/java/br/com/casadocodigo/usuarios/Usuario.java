@@ -1,4 +1,4 @@
-package br.com.casadocodigo.registro;
+package br.com.casadocodigo.usuarios;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.casadocodigo.estante.Estante;
+import br.com.casadocodigo.livros.Estante;
 import lombok.Getter;
 
 @Entity

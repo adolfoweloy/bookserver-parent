@@ -1,4 +1,4 @@
-package br.com.casadocodigo.estante;
+package br.com.casadocodigo.livros;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,39 +10,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.com.casadocodigo.registro.Usuario;
-import br.com.casadocodigo.registro.Usuarios;
-import br.com.casadocodigo.seguranca.UsuarioLogado;
+import br.com.casadocodigo.usuarios.Usuario;
+import br.com.casadocodigo.usuarios.Usuarios;
+import br.com.casadocodigo.configuracao.seguranca.UsuarioLogado;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping({"/livros", "/api/livros"})
+@RequestMapping("/livros")
 public class LivrosController {
 
 	@Autowired
 	private Usuarios usuarios;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<?> livros() {
+	@RequestMapping(value = "/principal", method = RequestMethod.GET)
+	public ModelAndView principal() {
+		ModelAndView mv = new ModelAndView("livros/principal");
 
-		Estante estante = usuarioLogado().getEstante();
+		mv.addObject("livros", usuarioLogado().getEstante().todosLivros());
 
-		if (estante.temLivros()) {
-			return new ResponseEntity<>(estante.todosLivros(), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		}
-
+		return mv;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<?> adicionarLivro(@RequestBody Livro livro) {
+	@RequestMapping(value = "/principal", method = RequestMethod.POST)
+	public ModelAndView adicionarLivro(@RequestBody Livro livro) {
 		Usuario usuario = usuarioLogado();
-		
+
 		usuario.getEstante().adicionar(livro);
 
 		usuarios.atualizar(usuario);
-		
-		return new ResponseEntity<>(livro, HttpStatus.CREATED);
+
+		ModelAndView mv = new ModelAndView("livros/principal");
+		mv.addObject("livros", usuario.getEstante().todosLivros());
+
+		return mv;
 	}
 
 	private Usuario usuarioLogado() {

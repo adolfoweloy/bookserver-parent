@@ -1,4 +1,4 @@
-package br.com.casadocodigo.seguranca;
+package br.com.casadocodigo.configuracao.seguranca;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.casadocodigo.registro.Usuario;
-import br.com.casadocodigo.registro.Usuarios;
+import br.com.casadocodigo.usuarios.Usuario;
+import br.com.casadocodigo.usuarios.Usuarios;
 
 @Service
 public class DadosDoUsuarioService implements UserDetailsService {
