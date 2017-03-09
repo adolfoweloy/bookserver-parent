@@ -27,9 +27,9 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
         // @formatter:off
         http
             .requestMatchers()
-                .antMatchers("/api/livros/**").and()
+                .antMatchers("/api/v2/livros/**").and()
             .authorizeRequests()
-                .antMatchers("/api/livros/**").authenticated();
+                .antMatchers("/api/v2/livros/**").authenticated();
         // @formatter:on
     }
 
